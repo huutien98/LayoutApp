@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/item_messenger"
+    android:layout_width="match_parent"
+    android:layout_height="91.57dp">
+
+    <ImageView
+        android:id="@+id/img_avatar"
+        android:layout_width="54dp"
+        android:layout_height="55dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="26dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginBottom="19dp" />
+
+    <ImageView
+        android:layout_width="11dp"
+        android:layout_height="11dp"
+        android:layout_alignParentStart="true"
+
+
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="57dp"
+        android:layout_marginTop="57dp"
+        android:background="@drawable/btn_circle" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        style="@style/TextStyle27"
+        android:layout_width="116dp"
+        android:layout_height="19dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="22dp"
+        android:layout_toRightOf="@+id/img_avatar"
+        android:textColor="@color/darkish_pink" />
+
+    <TextView
+        style="@style/TextStyle28"
+        android:id="@+id/tv_messenger"
+        android:layout_width="137dp"
+        android:layout_height="16dp"
+        android:layout_below="@+id/tv_name"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="26dp"
+        android:layout_toRightOf="@+id/img_avatar" />
+
+    <TextView
+        android:id="@+id/tv_number"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="345dp"
+        android:layout_marginLeft="340dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/btn_circle"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+
+    <TextView
+        android:textSize="10sp"
+        android:gravity="center"
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_below="@+id/tv_number"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginRight="21dp"
+        android:layout_marginBottom="26dp" />
+
+    <ImageView
+        android:layout_marginBottom="1sp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/black" />
+
+</RelativeLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:minHeight="?attr/actionBarSize"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Spinner
+        android:gravity="center"
+        android:id="@+id/spinner_nav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginLeft="2dp"
+        android:textColor="@color/dark_blue_grey"
+        android:gravity="center"
+        android:text="Chicago,IL 60611,USA"
+        android:layout_below="@+id/spinner_nav"
+        android:id="@+id/tv_view"
+        android:layout_width="153dp"
+        android:layout_height="18dp"/>
+
+
+
+
+</RelativeLayout>
+
+
+</androidx.appcompat.widget.Toolbar>
