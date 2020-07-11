@@ -1,22 +1,16 @@
 package com.vncoder.layoutapp.Model
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.io.Serializable
 
-@Entity
-class User(var userName: String, var password: String, var mail: String) :
-    Serializable {
+
+@Entity(tableName = "account_table")
+data class User(
     @PrimaryKey(autoGenerate = true)
-    var id = 0
+    @ColumnInfo (name = "id") val id: Int? =0,
+    @ColumnInfo(name = "name") val name: String? ="",
+    @ColumnInfo(name = "mail") val mail: String? ="",
+    @ColumnInfo(name = "password") val password: String? = ""
+)
 
-    override fun toString(): String {
-        return "User{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", mail='" + mail + '\'' +
-                '}'
-    }
-
-}

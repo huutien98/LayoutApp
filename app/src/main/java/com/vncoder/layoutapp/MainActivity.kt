@@ -11,26 +11,29 @@ import com.vncoder.layoutapp.Data.UserDao
 import com.vncoder.layoutapp.Data.UserDataBase
 import com.vncoder.layoutapp.Model.User
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlin.coroutines.CoroutineContext
 
-class MainActivity : AppCompatActivity() {
-    var db: UserDao? = null
-    var dataBase: UserDataBase? = null
-    var user: User? = null
+class MainActivity : AppCompatActivity() ,CoroutineScope{
+
+    private var noteDB: UserDataBase? = null
+
+    private lateinit var mJob: Job
+    override val coroutineContext: CoroutineContext
+        get() = mJob + Dispatchers.Main
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        user = intent.getSerializableExtra("User") as User?
-        if (user != null) {
-            editTextmail.setText(user!!.mail)
-            editText2.setText(user!!.password)
-        }
+        mJob = Job()
+        noteDB = UserDataBase.getData(this)
 
-        dataBase = Room.databaseBuilder(this, UserDataBase::class.java, "account.db")
-            .allowMainThreadQueries()
-            .build()
-        db = dataBase!!.userDao
+        var string = intent.getStringExtra("mail")
+            editTextmail.setText(string)
+
 
         tv_signup.setOnClickListener {
             val intentSignUp = Intent(baseContext, MainActivity2::class.java)
@@ -47,15 +50,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         button.setOnClickListener {
-            val mail = editTextmail.text.toString().trim { it <= ' ' }
-            val password = editText2.text.toString().trim { it <= ' ' }
-            val user = db!!.getUser(mail, password)
+            val mail = editTextmail.text.toString().trim()
+            val password = editText2.text.toString().trim()
+            val user = noteDB?.userDao()?.getUser(mail, password)
+
             if (user != null) {
                 val intent = Intent(this@MainActivity, MainActivity3::class.java)
                 startActivity(intent)
+                Toast.makeText(this,user.id.toString()+ user.mail+user.password,Toast.LENGTH_SHORT).show()
                 finish()
             } else {
-                Toast.makeText(baseContext, "mail or password not correct", Toast.LENGTH_LONG
+                Toast.makeText(baseContext,"mail or password not correct", Toast.LENGTH_LONG
                 ).show()
             }
         }
@@ -76,13 +81,11 @@ class MainActivity : AppCompatActivity() {
         builder.setCancelable(false)
         builder.setPositiveButton(
             "No"
-        ) { dialogInterface, i ->
-            Toast.makeText(this@MainActivity, "thank you", Toast.LENGTH_SHORT).show()
+        ) { dialogInterface, i -> Toast.makeText(this@MainActivity, "thank you", Toast.LENGTH_SHORT).show()
         }
         builder.setNegativeButton(
             "Yes"
-        ) { dialogInterface, i ->
-            Toast.makeText(applicationContext, "see you again", Toast.LENGTH_LONG).show()
+        ) { dialogInterface, i -> Toast.makeText(applicationContext, "see you again", Toast.LENGTH_LONG).show()
             dialogInterface.dismiss()
             System.exit(0)
         }

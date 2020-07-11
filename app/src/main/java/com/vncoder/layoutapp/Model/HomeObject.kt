@@ -7,7 +7,7 @@ class HomeObject(
     var name: String,
     var status: String,
     var time: String,
-    var pay: Float
+    var pay: Int
 ) {
     var isChecked = false
 
