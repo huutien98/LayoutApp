@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() ,CoroutineScope{
             if (user != null) {
                 val intent = Intent(this@MainActivity, MainActivity3::class.java)
                 startActivity(intent)
-                Toast.makeText(this,user.id.toString()+ user.mail+user.password,Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this,user.id.toString()+ user.mail+user.password,Toast.LENGTH_SHORT).show()
                 finish()
             } else {
                 Toast.makeText(baseContext,"mail or password not correct", Toast.LENGTH_LONG

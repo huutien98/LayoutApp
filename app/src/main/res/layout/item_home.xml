@@ -22,30 +22,30 @@
         <ImageView
             android:layout_marginTop="13dp"
             android:layout_marginLeft="13dp"
-            android:id="@+id/img_avatar"
+            android:id="@+id/img_avatar_home"
             android:layout_width="38dp"
             android:layout_height="38dp"
               />
         <TextView
             android:layout_marginTop="13dp"
             android:layout_marginLeft="10dp"
-            android:id="@+id/tv_name"
+            android:id="@+id/tv_name_home"
             android:textColor="@color/dark_blue_grey"
-            android:layout_toRightOf="@id/img_avatar"
+            android:layout_toRightOf="@id/img_avatar_home"
             android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
-            android:id="@+id/tv_time"
+            android:id="@+id/tv_time_home"
             android:layout_marginLeft="10dp"
             android:textSize="10sp"
             android:typeface="serif"
-            android:layout_toRightOf="@id/img_avatar"
-            android:layout_below="@+id/tv_name"
+            android:layout_toRightOf="@id/img_avatar_home"
+            android:layout_below="@+id/tv_name_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <ImageButton
-            android:id="@+id/btn_more"
+            android:id="@+id/btn_more_home"
             android:layout_marginTop="25dp"
             android:layout_marginLeft="357dp"
             android:background="@drawable/btn_menu_dots"
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"/>
         <TextView
             style="@style/TextStyle28"
-            android:id="@+id/tv_status"
+            android:id="@+id/tv_status_home"
             android:layout_marginLeft="64dp"
             android:layout_marginTop="59dp"
             android:layout_width="wrap_content"
@@ -61,8 +61,8 @@
         <ImageView
             android:layout_marginTop="10dp"
             android:layout_marginLeft="64dp"
-            android:layout_below="@+id/tv_status"
-            android:id="@+id/img_status"
+            android:layout_below="@+id/tv_status_home"
+            android:id="@+id/img_status_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <ToggleButton
@@ -71,19 +71,19 @@
             android:textOff=""
             android:layout_marginTop="24dp"
             android:layout_marginLeft="65dp"
-            android:id="@+id/btn_heart"
-            android:layout_below="@+id/img_status"
+            android:id="@+id/btn_heart_home"
+            android:layout_below="@+id/img_status_home"
             android:background="@drawable/btn_heart_animation"
             android:checked="false"
             android:layout_width="24dp"
             android:layout_height="22dp"/>
         <ImageButton
-            android:id="@+id/ic_cmt"
+            android:id="@+id/ic_cmt_home"
             android:layout_marginTop="24dp"
             android:layout_marginLeft="13dp"
             android:layout_marginRight="20dp"
-            android:layout_toRightOf="@+id/btn_heart"
-            android:layout_below="@+id/img_status"
+            android:layout_toRightOf="@+id/btn_heart_home"
+            android:layout_below="@+id/img_status_home"
             android:background="@drawable/btn_comment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -91,10 +91,10 @@
 
         <TextView
             android:typeface="monospace"
-            android:id="@+id/tv_money"
+            android:id="@+id/tv_money_home"
             android:layout_width="wrap_content"
             android:layout_height="19dp"
-            android:layout_below="@id/img_status"
+            android:layout_below="@id/img_status_home"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_marginLeft="303dp"

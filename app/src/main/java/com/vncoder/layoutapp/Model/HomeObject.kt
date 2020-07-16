@@ -1,5 +1,7 @@
 package com.vncoder.layoutapp.Model
 
+import java.io.Serializable
+
 class HomeObject(
     var id: Int,
     var avatar: Int,
@@ -8,7 +10,4 @@ class HomeObject(
     var status: String,
     var time: String,
     var pay: Int
-) {
-    var isChecked = false
-
-}
+): Serializable

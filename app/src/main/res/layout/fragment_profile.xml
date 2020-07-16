@@ -1,14 +1,312 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.ProfileFragment">
+    android:background="@color/white"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:src="@drawable/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <ImageButton
+        android:id="@+id/btn_profile"
+        android:layout_width="168dp"
+        android:layout_height="154dp"
+        android:layout_marginTop="104dp"
+        android:background="@drawable/profilemain"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="483dp"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginBottom="9dp"
+            android:background="@color/white"
+            app:layout_constraintCircleRadius="5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/img_avatar"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginTop="13dp"
+                    android:src="@mipmap/profile" />
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_toRightOf="@id/img_avatar"
+                    android:text="Today is monday"
+                    android:textColor="@color/dark_blue_grey"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_name"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/img_avatar"
+                    android:text="8:30 AM"
+                    android:textSize="10sp"
+                    android:typeface="serif" />
+
+                <ImageButton
+                    android:id="@+id/btn_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="357dp"
+                    android:layout_marginTop="25dp"
+                    android:background="@drawable/btn_menu_dots" />
+
+                <TextView
+                    android:id="@+id/tv_status"
+                    style="@style/TextStyle28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="64dp"
+                    android:layout_marginTop="59dp"
+                    android:text="Yeah, I'm gonna take my horse to the old town road
+I'm gonna ride 'til I can't no more
+I'm gonna take my horse to the old town road
+I'm gonna ride 'til I can't no more (Kio, Kio)
+I got the horses in the back
+Horse tack is attached
+Hat is matte black
+Got the boots that's black to match
+Ridin' on a horse, ha
+You can whip your Porsche
+I been in the valley
+You ain't been up off that porch, now" />
+
+                <ImageView
+                    android:id="@+id/img_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_status"
+                    android:layout_marginLeft="64dp"
+                    android:layout_marginTop="10dp" />
+
+                <ToggleButton
+                    android:id="@+id/btn_heart"
+                    android:layout_width="24dp"
+                    android:layout_height="22dp"
+                    android:layout_below="@+id/img_status"
+                    android:layout_marginLeft="65dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/btn_heart_animation"
+                    android:checked="false"
+                    android:text=""
+                    android:textOff=""
+                    android:textOn="" />
+
+                <ImageButton
+                    android:id="@+id/ic_cmt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/img_status"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_toRightOf="@+id/btn_heart"
+                    android:background="@drawable/btn_comment" />
+
+
+                <TextView
+                    android:id="@+id/tv_money"
+                    android:layout_width="63dp"
+                    android:layout_height="19dp"
+                    android:layout_below="@id/img_status"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="303dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="27dp"
+                    android:layout_marginRight="27dp"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:text="$50.00"
+                    android:textColor="@color/dark_blue_grey"
+                    android:textSize="15sp"
+                    android:typeface="monospace" />
+            </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginBottom="9dp"
+            android:background="@color/white"
+            app:layout_constraintCircleRadius="5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/img_avatar1"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginTop="13dp"
+                    android:src="@mipmap/profile" />
+
+                <TextView
+                    android:id="@+id/tv_name1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_toRightOf="@id/img_avatar1"
+                    android:text="yesterday is sunday"
+                    android:textColor="@color/dark_blue_grey"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_time1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_name1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/img_avatar1"
+                    android:text="12:30 PM"
+                    android:textSize="10sp"
+                    android:typeface="serif" />
+
+                <ImageButton
+                    android:id="@+id/btn_more1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="357dp"
+                    android:layout_marginTop="25dp"
+                    android:background="@drawable/btn_menu_dots" />
+
+                <TextView
+                    android:id="@+id/tv_status1"
+                    style="@style/TextStyle28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="64dp"
+                    android:layout_marginTop="59dp"
+                    android:text="Can't nobody tell me nothin'
+You can't tell me nothin'
+Can't nobody tell me nothin'
+You can't tell me nothin'
+Ridin' on a tractor
+Lean all in my bladder
+Cheated on my baby
+You can go and ask her
+My life is a movie
+Bull ridin' and boobies
+Cowboy hat from Gucci
+Wrangler on my booty…" />
+
+                <ImageView
+                    android:id="@+id/img_status1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_status1"
+                    android:layout_marginLeft="64dp"
+                    android:layout_marginTop="10dp" />
+
+                <ToggleButton
+                    android:id="@+id/btn_heart1"
+                    android:layout_width="24dp"
+                    android:layout_height="22dp"
+                    android:layout_below="@+id/img_status1"
+                    android:layout_marginLeft="65dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/btn_heart_animation"
+                    android:checked="false"
+                    android:text=""
+                    android:textOff=""
+                    android:textOn="" />
+
+                <ImageButton
+                    android:id="@+id/ic_cmt1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/img_status1"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_toRightOf="@+id/btn_heart1"
+                    android:background="@drawable/btn_comment" />
+
+
+                <TextView
+                    android:id="@+id/tv_money1"
+                    android:layout_width="63dp"
+                    android:layout_height="19dp"
+                    android:layout_below="@id/img_status1"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="303dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="27dp"
+                    android:layout_marginRight="27dp"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_blue_grey"
+                    android:textSize="15sp"
+                    android:typeface="monospace" />
+            </RelativeLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

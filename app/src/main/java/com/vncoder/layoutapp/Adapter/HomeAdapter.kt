@@ -8,23 +8,37 @@ import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
+import com.vncoder.fragment_demo.PassData.Comunicator_interface
 import com.vncoder.layoutapp.Model.HomeObject
+import com.vncoder.layoutapp.Model.MessengerObject
 import com.vncoder.layoutapp.R
 import java.text.DecimalFormat
 
-class HomeAdapter(val ListHome:ArrayList<HomeObject>? )
-    :RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
-    var ctx: Context? = null
+class HomeAdapter() :RecyclerView.Adapter<HomeAdapter.ViewHolder>(){
+    lateinit var  context: Context
+    lateinit var ListHome: ArrayList<HomeObject>
+    lateinit var comunicatorInterface: Comunicator_interface
 
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_home,parent,false)
-        return ViewHolder(itemView)
+    constructor(context: Context, ListHome: ArrayList<HomeObject>?,comunicatorInterface: Comunicator_interface) : this() {
+        this.context = context
+        this.ListHome = ListHome!!
+        this.comunicatorInterface = comunicatorInterface
     }
 
-    override fun getItemCount()=ListHome!!.size
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val layoutInflater = LayoutInflater.from(context)
+        val homeView: View = layoutInflater.inflate(R.layout.item_home, parent, false)
+        var viewHoder: ViewHolder= ViewHolder(homeView)
+        return viewHoder
+    }
+
+    override fun getItemCount():Int {
+        return ListHome.size
+    }
+
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
 
         val ItemHome = ListHome?.get(position)
         holder.tv_name.setText(ItemHome?.name)
@@ -36,20 +50,20 @@ class HomeAdapter(val ListHome:ArrayList<HomeObject>? )
         holder.img_status.setImageResource(ItemHome.image)
 
         holder.btn_more.setOnClickListener {
-            val popupMenu =
-                PopupMenu(ctx, holder.btn_more)
+
+            val popupMenu = PopupMenu(context,holder.btn_more)
             popupMenu.inflate(R.menu.menu_popup)
             popupMenu.setOnMenuItemClickListener { item ->
                 when (item.itemId) {
-                    R.id.item1 -> Toast.makeText(ctx, "delete false", Toast.LENGTH_LONG)
+                    R.id.item1 -> Toast.makeText(context, "delete false", Toast.LENGTH_LONG)
                         .show()
-                    R.id.item2 -> Toast.makeText(ctx, "delete false", Toast.LENGTH_LONG)
+                    R.id.item2 -> Toast.makeText(context, "delete false", Toast.LENGTH_LONG)
                         .show()
                     R.id.item3 -> {
                     }
-                    R.id.subitem1 -> Toast.makeText(ctx, "delete false", Toast.LENGTH_LONG)
+                    R.id.subitem1 -> Toast.makeText(context, "delete false", Toast.LENGTH_LONG)
                         .show()
-                    R.id.subitem2 -> Toast.makeText(ctx, "delete false", Toast.LENGTH_LONG)
+                    R.id.subitem2 -> Toast.makeText(context, "delete false", Toast.LENGTH_LONG)
                         .show()
                 }
                 false
@@ -57,10 +71,20 @@ class HomeAdapter(val ListHome:ArrayList<HomeObject>? )
             popupMenu.show()
         }
 
+        holder.img_avatar.setOnClickListener {
+
+            var MessengerObject  = MessengerObject(
+                ItemHome.name,
+                ItemHome.status,
+                ItemHome.time,
+                ItemHome.pay
+            )
+            comunicatorInterface.passData(MessengerObject)
+
+        }
+
         setFadeAnimation(holder.itemView)
-
     }
-
     fun setFadeAnimation(view: View) {
         val anim = AlphaAnimation(0.0f, 1.0f)
         anim.duration = 1200
@@ -70,14 +94,22 @@ class HomeAdapter(val ListHome:ArrayList<HomeObject>? )
     }
 
     class ViewHolder(itemView:View) :RecyclerView.ViewHolder(itemView) {
-        val tv_name = itemView.findViewById(R.id.tv_name) as TextView
-        val tv_time  = itemView.findViewById(R.id.tv_time) as TextView
-        val tv_status  = itemView.findViewById(R.id.tv_status) as TextView
-        val tv_money   = itemView.findViewById(R.id.tv_money) as TextView
-        val img_status   = itemView.findViewById(R.id.img_status) as ImageView
-        val img_avatar   = itemView.findViewById(R.id.img_avatar) as ImageView
-        val btn_heart   = itemView.findViewById(R.id.btn_heart) as ToggleButton
-        val ic_cmt  = itemView.findViewById(R.id.ic_cmt) as ImageButton
-        val btn_more   = itemView.findViewById(R.id.btn_more) as ImageButton
+
+        val tv_name = itemView.findViewById(R.id.tv_name_home) as TextView
+        val tv_time  = itemView.findViewById(R.id.tv_time_home) as TextView
+        val tv_status  = itemView.findViewById(R.id.tv_status_home) as TextView
+        val tv_money   = itemView.findViewById(R.id.tv_money_home) as TextView
+        val img_status   = itemView.findViewById(R.id.img_status_home) as ImageView
+        val img_avatar   = itemView.findViewById(R.id.img_avatar_home) as ImageView
+        val btn_heart   = itemView.findViewById(R.id.btn_heart_home) as ToggleButton
+        val ic_cmt  = itemView.findViewById(R.id.ic_cmt_home) as ImageButton
+        val btn_more   = itemView.findViewById(R.id.btn_more_home) as ImageButton
     }
+
+
+
+
+
+
+
 }
