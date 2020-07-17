@@ -8,6 +8,7 @@ import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.vncoder.fragment_demo.PassData.Comunicator_interface
 import com.vncoder.layoutapp.Model.HomeObject
 import com.vncoder.layoutapp.Model.MessengerObject

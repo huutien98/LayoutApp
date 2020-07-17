@@ -3,12 +3,17 @@ package com.vncoder.layoutapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.vncoder.fragment_demo.PassData.Comunicator_interface
 import com.vncoder.layoutapp.Fragment.*
 import com.vncoder.layoutapp.Model.MessengerObject
 import kotlinx.android.synthetic.main.activity_main3.*
+import java.util.*
+import kotlin.collections.ArrayList
+
 class MainActivity3 : AppCompatActivity(),Comunicator_interface   {
 
 
@@ -88,14 +93,11 @@ class MainActivity3 : AppCompatActivity(),Comunicator_interface   {
         }
 
     override fun passData(data: MessengerObject) {
-
     }
 
     fun processDataFromChild(data: MessengerObject) {
 
-
-        
-
+        bottom_navigation.setSelectedItemId(R.id.nav_messenger);
 
         var messengerObject : MessengerObject = MessengerObject(data.id,data.name,data.messenger,data.time,data.number,data.avatar)
         var  check : Int = -1
@@ -110,11 +112,9 @@ class MainActivity3 : AppCompatActivity(),Comunicator_interface   {
         }
         if(check!= -1 ){
             ListClickHome.removeAt(check)
-
         }
 
-
-
+        Collections.swap(ListClickHome,ListClickHome.lastIndexOf(messengerObject),0)
 
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
