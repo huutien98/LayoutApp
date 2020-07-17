@@ -92,6 +92,31 @@ class HomeFragment : Fragment(),Comunicator_interface {
                 "Today, 01:24 PM",
                 340)
         )
+
+        home.add(
+            HomeObject(
+                1,
+                R.drawable.btn_circle,
+                R.drawable.background,
+                "sơn nv",
+                "What is the loop of Creation? How is there something from nothing? " +
+                        "In spite of the fact that it is impossible to prove that anythin….",
+                "Today, 01:24 PM",
+                340)
+        )
+
+
+        home.add(
+            HomeObject(
+                1,
+                R.drawable.profilemain,
+                R.drawable.background,
+                "phúc bv",
+                "What is the loop of Creation? How is there something from nothing? " +
+                        "In spite of the fact that it is impossible to prove that anythin….",
+                "Today, 01:24 PM",
+                340)
+        )
         val homeAdapter = this.context?.let { HomeAdapter(it,home,this) }
         recyclerView.adapter = homeAdapter
 

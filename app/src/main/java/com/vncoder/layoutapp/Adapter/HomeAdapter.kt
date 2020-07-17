@@ -74,10 +74,13 @@ class HomeAdapter() :RecyclerView.Adapter<HomeAdapter.ViewHolder>(){
         holder.img_avatar.setOnClickListener {
 
             var MessengerObject  = MessengerObject(
+                ItemHome.id,
                 ItemHome.name,
                 ItemHome.status,
                 ItemHome.time,
-                ItemHome.pay
+                ItemHome.pay,
+                ItemHome.avatar
+
             )
             comunicatorInterface.passData(MessengerObject)
 

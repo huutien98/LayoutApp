@@ -20,10 +20,10 @@ import kotlinx.android.synthetic.main.toolbar_home.*
 import kotlinx.android.synthetic.main.toolbar_home.toolbar
 
 
-class MessengerFragment(data: MessengerObject?) : Fragment()  {
+class MessengerFragment(List: ArrayList<MessengerObject>) : Fragment()  {
 
 
-    private val MessengerObject : MessengerObject?= data
+    private val Lists : ArrayList<MessengerObject> = List
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,35 +41,21 @@ class MessengerFragment(data: MessengerObject?) : Fragment()  {
         var recyclerView: RecyclerView = root.findViewById(R.id.rv_messenger)
         recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
 
-        Toast.makeText(context,MessengerObject?.name.toString(),Toast.LENGTH_SHORT).show()
-        var listData : ArrayList<MessengerObject> = ArrayList()
 
-        var  check : Int = -1
-        if (this.MessengerObject != null) {
+//        var listData : ArrayList<MessengerObject> = ArrayList()
 
-            listData.forEachIndexed { index, value ->
-                if (value.name == MessengerObject!!.name) {
-                    check=index
-                }
-            }
-            listData.add(MessengerObject)
-        }
-
-        val messengerAdapter = this.context?.let { MessengerAdapter(it,listData) }
+        val messengerAdapter = this.context?.let { MessengerAdapter(it,Lists) }
         recyclerView.adapter = messengerAdapter
         messengerAdapter?.notifyDataSetChanged()
 
 
-            var adapterMess: MessengerAdapter = MessengerAdapter(root.context,listData)
-            Log.d("aaa",listData.size.toString())
+
+            var adapterMess: MessengerAdapter = MessengerAdapter(root.context,Lists)
+            Log.d("aaa",Lists.size.toString())
             recyclerView.adapter = adapterMess
             adapterMess.notifyDataSetChanged()
 
-//        if(check!= -1 ){
-//            listData.removeAt(check)
-//            adapterMess.notifyItemRemoved(check)
-//
-//        }
+
 
         return root
     }

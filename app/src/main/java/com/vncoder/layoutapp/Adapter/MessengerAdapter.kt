@@ -23,22 +23,21 @@ class MessengerAdapter(val context: Context, val ListMessenger:ArrayList<Messeng
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val ItemMessenger = ListMessenger?.get(position)
-        holder.img_avatar_messenger.setImageResource(ItemMessenger?.avatar!!)
-        holder.tv_messenger_messenger.setText(ItemMessenger.messenger)
-        holder.tv_name_messenger.setText(ItemMessenger.name)
-        holder.tv_number_messenger.setText(ItemMessenger.number.toString())
-        holder.tv_time_messenger.setText(ItemMessenger.time)
-
+        holder.tv_name_messenger.setText(ItemMessenger?.name)
+        holder.tv_messenger_messenger.setText(ItemMessenger?.messenger)
+        holder.tv_time_messenger.setText(ItemMessenger?.time)
+        holder.tv_number_messenger.setText(ItemMessenger?.number.toString())
+        holder.img_avatar_messenger.setImageResource(ItemMessenger!!.avatar)
 
     }
 
 
     class ViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView) {
-        val img_avatar_messenger = itemView.findViewById<ImageView>(R.id.img_avatar_messenger)
         val tv_name_messenger = itemView.findViewById<TextView>(R.id.tv_name_messenger)
         val tv_messenger_messenger = itemView.findViewById<TextView>(R.id.tv_messenger_messenger)
         val tv_number_messenger = itemView.findViewById<TextView>(R.id.tv_number_messenger)
         val tv_time_messenger = itemView.findViewById<TextView>(R.id.tv_time_messenger)
+        val img_avatar_messenger = itemView.findViewById<ImageView>(R.id.img_avatar_messenger)
 
 
 
