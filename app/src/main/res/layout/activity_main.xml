@@ -1,18 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".SignInActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gn_guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="40dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gn_guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="40dp" />
+
 
     <ImageView
+        android:scaleType="fitXY"
         android:id="@+id/img_blog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/ing_blob_bg"
+        android:src="@drawable/bg_blob"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,8 +38,8 @@
         android:id="@+id/btn_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/img_group_4"
-        android:src="@drawable/img_group_4"
+        android:background="@drawable/img_back"
+        android:src="@drawable/img_back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.062"
@@ -35,12 +52,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/img_hi_blob"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="100dp"
+        app:layout_constraintRight_toRightOf="@id/gn_guideline2"
+        app:layout_constraintLeft_toLeftOf="@id/gn_guideline1"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.14" />
+          />
 
     <TextView
         android:id="@+id/textView"
@@ -63,71 +79,71 @@ Welcome back."
     <TextView
         android:id="@+id/textView2"
         style="@style/TextStyle19"
-        android:layout_width="130dp"
-        android:layout_height="18dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:text="EMAIL ADDRESS"
         android:textColor="@color/dark_blue_grey"
-        android:textSize="12sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.14"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintRight_toRightOf="@id/gn_guideline2"
+        app:layout_constraintLeft_toLeftOf="@id/gn_guideline1"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.48" />
+          />
 
     <EditText
+
+        android:textSize="15dp"
         android:id="@+id/editTextmail"
-        android:layout_width="172dp"
-        android:layout_height="19dp"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
         android:layout_marginTop="14dp"
         android:background="@null"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.16"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintRight_toRightOf="@id/gn_guideline2"
+        app:layout_constraintLeft_toLeftOf="@id/gn_guideline1"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <View
         android:id="@+id/view2"
-        android:layout_width="315dp"
+        android:layout_width="0dp"
         android:layout_height="1dp"
         android:background="@color/dark_two"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.549" />
+        app:layout_constraintRight_toRightOf="@id/gn_guideline2"
+        app:layout_constraintLeft_toLeftOf="@id/gn_guideline1"
+        app:layout_constraintBottom_toTopOf="@id/textView3"
+        android:layout_marginBottom="10dp"
+         />
 
     <TextView
         android:id="@+id/textView3"
         style="@style/TextStyle19"
-        android:layout_width="130dp"
-        android:layout_height="18dp"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
         android:text="PASSWORD"
         android:textColor="@color/dark_blue_grey"
-        android:textSize="12sp"
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="@id/gn_guideline2"
         app:layout_constraintHorizontal_bias="0.14"
-        app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintLeft_toLeftOf="@id/gn_guideline1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.6" />
 
 
     <EditText
+        android:textSize="15dp"
         android:id="@+id/editText2"
-        android:layout_width="172dp"
-        android:layout_height="19dp"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
         android:layout_marginTop="14dp"
         android:background="@null"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.158"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/tv_forgotPassword"
+        app:layout_constraintLeft_toLeftOf="@id/gn_guideline1"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
+        android:gravity="right"
         android:id="@+id/tv_forgotPassword"
         style="@style/TextStyle20"
         android:layout_width="wrap_content"
@@ -136,19 +152,19 @@ Welcome back."
         android:text="Forgot Password"
         android:textColor="@color/dark_blue_grey"
         app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editText2"
+        app:layout_constraintRight_toRightOf="@id/gn_guideline2"
+        app:layout_constraintLeft_toRightOf="@+id/editText2"
         app:layout_constraintTop_toTopOf="@+id/editText2" />
 
     <View
         android:id="@+id/view"
-        android:layout_width="315dp"
+        android:layout_width="0dp"
         android:layout_height="1dp"
         android:background="@color/dark_two"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="@id/gn_guideline2"
         app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintLeft_toLeftOf="@id/gn_guideline1"
         app:layout_constraintTop_toBottomOf="@+id/editText2"
         app:layout_constraintVertical_bias="0.065" />
     <Button
@@ -160,11 +176,10 @@ Welcome back."
         android:text="Sign in"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintRight_toRightOf="@id/gn_guideline2"
+        app:layout_constraintLeft_toLeftOf="@id/gn_guideline1"
         app:layout_constraintTop_toBottomOf="@+id/editText2"
-        app:layout_constraintVertical_bias="0.168" />
+          />
     <TextView
         android:id="@+id/textView5"
         style="@style/TextStyle22"

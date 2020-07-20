@@ -6,17 +6,14 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.room.Room
-import com.vncoder.layoutapp.Data.UserDao
 import com.vncoder.layoutapp.Data.UserDataBase
-import com.vncoder.layoutapp.Model.User
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlin.coroutines.CoroutineContext
 
-class MainActivity : AppCompatActivity() ,CoroutineScope{
+class SignInActivity : AppCompatActivity() ,CoroutineScope{
 
     private var noteDB: UserDataBase? = null
 
@@ -31,12 +28,18 @@ class MainActivity : AppCompatActivity() ,CoroutineScope{
         mJob = Job()
         noteDB = UserDataBase.getData(this)
 
-        var string = intent.getStringExtra("mail")
-            editTextmail.setText(string)
+        val bundle = intent.extras
+        if (bundle != null) {
+            var value1 = bundle.getString("mail", "")
+            var value2 = bundle.getString("password", "")
 
+            editTextmail.setText(value1)
+            editText2.setText(value2)
+
+        }
 
         tv_signup.setOnClickListener {
-            val intentSignUp = Intent(baseContext, MainActivity2::class.java)
+            val intentSignUp = Intent(baseContext, SignUpActivity::class.java)
             startActivity(intentSignUp)
             finish()
         }
@@ -55,7 +58,7 @@ class MainActivity : AppCompatActivity() ,CoroutineScope{
             val user = noteDB?.userDao()?.getUser(mail, password)
 
             if (user != null) {
-                val intent = Intent(this@MainActivity, MainActivity3::class.java)
+                val intent = Intent(this@SignInActivity, HomeActivity::class.java)
                 startActivity(intent)
 //                Toast.makeText(this,user.id.toString()+ user.mail+user.password,Toast.LENGTH_SHORT).show()
                 finish()
@@ -64,9 +67,7 @@ class MainActivity : AppCompatActivity() ,CoroutineScope{
                 ).show()
             }
         }
-
         btn_back.setOnClickListener { showAlertDialog() }
-
     }
 
     override fun onBackPressed() {
@@ -81,7 +82,7 @@ class MainActivity : AppCompatActivity() ,CoroutineScope{
         builder.setCancelable(false)
         builder.setPositiveButton(
             "No"
-        ) { dialogInterface, i -> Toast.makeText(this@MainActivity, "thank you", Toast.LENGTH_SHORT).show()
+        ) { dialogInterface, i -> Toast.makeText(this@SignInActivity, "thank you", Toast.LENGTH_SHORT).show()
         }
         builder.setNegativeButton(
             "Yes"

@@ -1,30 +1,24 @@
 package com.vncoder.layoutapp
 
-
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.get
 import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.vncoder.fragment_demo.PassData.Comunicator_interface
+import com.vncoder.fragment_demo.PassData.ComunicatorInterface
 import com.vncoder.layoutapp.Fragment.*
 import com.vncoder.layoutapp.Model.MessengerObject
 import kotlinx.android.synthetic.main.activity_main3.*
 import java.util.*
 import kotlin.collections.ArrayList
 
-class MainActivity3 : AppCompatActivity(),Comunicator_interface   {
+class HomeActivity : AppCompatActivity(),ComunicatorInterface   {
 
-
+    private val HOME_FRAGMENT = "HOME_FRAGMENT"
     private val SELECT_FRAGMENT = "SELECT_FRAGMENT"
     private val MESSENGER_FRAGMENT = "MESSENGER_FRAGMENT"
     private val NOTIFICATION_FRAGMENT = "NOTIFICATION_FRAGMENT"
     private val PROFILE_FRAGMENT = "PROFILE_FRAGMENT"
     private val ListClickHome : ArrayList<MessengerObject> = ArrayList()
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +40,8 @@ class MainActivity3 : AppCompatActivity(),Comunicator_interface   {
             transaction.commit()
         }
 
+
+
     }
 
     private val navListener = BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
@@ -55,7 +51,7 @@ class MainActivity3 : AppCompatActivity(),Comunicator_interface   {
             when (menuItem.itemId) {
                 R.id.nav_home -> {
                     selectedFragment = HomeFragment()
-                    fragmentTransaction.replace(
+                    fragmentTransaction.add(
                         R.id.fragment_container,
                         selectedFragment!!,
                         this.SELECT_FRAGMENT
@@ -63,7 +59,7 @@ class MainActivity3 : AppCompatActivity(),Comunicator_interface   {
                 }
                 R.id.nav_messenger -> {
                     selectedFragment = MessengerFragment(ListClickHome)
-                    fragmentTransaction.replace(
+                    fragmentTransaction.add(
                         R.id.fragment_container,
                         selectedFragment!!,
                         this.MESSENGER_FRAGMENT
@@ -73,7 +69,7 @@ class MainActivity3 : AppCompatActivity(),Comunicator_interface   {
                 }
                 R.id.nav_notification -> {
                     selectedFragment = NotificationFragment()
-                    fragmentTransaction.replace(
+                    fragmentTransaction.add(
                         R.id.fragment_container,
                         selectedFragment!!,
                         this.NOTIFICATION_FRAGMENT
@@ -81,7 +77,7 @@ class MainActivity3 : AppCompatActivity(),Comunicator_interface   {
                 }
                 R.id.nav_profile -> {
                     selectedFragment = ProfileFragment()
-                    fragmentTransaction.replace(
+                    fragmentTransaction.add(
                         R.id.fragment_container,
                         selectedFragment!!,
                         this.NOTIFICATION_FRAGMENT
@@ -93,28 +89,26 @@ class MainActivity3 : AppCompatActivity(),Comunicator_interface   {
         }
 
     override fun passData(data: MessengerObject) {
+
     }
-
     fun processDataFromChild(data: MessengerObject) {
+        bottom_navigation.setSelectedItemId(R.id.nav_messenger)
 
-        bottom_navigation.setSelectedItemId(R.id.nav_messenger);
 
-        var messengerObject : MessengerObject = MessengerObject(data.id,data.name,data.messenger,data.time,data.number,data.avatar)
-        var  check : Int = -1
-        if (messengerObject != null) {
 
-            ListClickHome.forEachIndexed { index, value ->
-                if (value.name == messengerObject!!.name) {
-                    check=index
-                }
-            }
-            ListClickHome.add(messengerObject)
-        }
-        if(check!= -1 ){
-            ListClickHome.removeAt(check)
-        }
+//        var  check : Int = -1
+//            ListClickHome.forEachIndexed { index, value ->
+//                if (value.name == data.name) {
+//                    check=index
+//                }
+//            }
+        ListClickHome.add(data)
+//        if(check!= -1 ){
+//            ListClickHome.removeAt(check)
+//        }
 
-        Collections.swap(ListClickHome,ListClickHome.lastIndexOf(messengerObject),0)
+
+        Collections.swap(ListClickHome,ListClickHome.lastIndexOf(data),0)
 
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()

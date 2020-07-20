@@ -11,27 +11,28 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.vncoder.fragment_demo.PassData.Comunicator_interface
+import com.vncoder.fragment_demo.PassData.ComunicatorInterface
 import com.vncoder.layoutapp.Adapter.HomeAdapter
-import com.vncoder.layoutapp.MainActivity3
+import com.vncoder.layoutapp.HomeActivity
 import com.vncoder.layoutapp.Model.HomeObject
 import com.vncoder.layoutapp.Model.MessengerObject
 import com.vncoder.layoutapp.R
 import kotlinx.android.synthetic.main.toolbar_home.*
 
 
-class HomeFragment : Fragment(),Comunicator_interface {
+class HomeFragment : Fragment(),ComunicatorInterface {
+    var list: ArrayList<String> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-}
+        setRetainInstance(true)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_home,container,false)
 
         var spinner: Spinner = root.findViewById(R.id.spinner_nav) as Spinner
-        var list: ArrayList<String> = ArrayList()
         list.add("All Categories")
         list.add("Sport")
 
@@ -51,8 +52,8 @@ class HomeFragment : Fragment(),Comunicator_interface {
         home.add(
             HomeObject(
                 1,
-                R.drawable.profile1,
-                R.drawable.background,
+                R.drawable.img_profile1,
+                R.drawable.bg_background,
                 "Martin Palmer",
                 "What is the loop of Creation? How is there something from nothing? " +
                         "In spite of the fact that it is impossible to prove that anythin….",
@@ -62,8 +63,8 @@ class HomeFragment : Fragment(),Comunicator_interface {
         home.add(
             HomeObject(
                 1,
-                R.drawable.profile1,
-                R.drawable.background,
+                R.drawable.img_profile1,
+                R.drawable.bg_background,
                 "michel scofile",
                 "What is the loop of Creation? How is there something from nothing? " +
                         "In spite of the fact that it is impossible to prove that anythin….",
@@ -73,9 +74,9 @@ class HomeFragment : Fragment(),Comunicator_interface {
         home.add(
             HomeObject(
                 1,
-                R.drawable.profile1,
-                R.drawable.background,
-                "Rank con láo toét",
+                R.drawable.img_profile1,
+                R.drawable.bg_background,
+                "toshibar",
                 "What is the loop of Creation? How is there something from nothing? " +
                         "In spite of the fact that it is impossible to prove that anythin….",
                 "Today, 08:50 PM",
@@ -84,8 +85,8 @@ class HomeFragment : Fragment(),Comunicator_interface {
         home.add(
             HomeObject(
                 1,
-                R.drawable.profile1,
-                R.drawable.background,
+                R.drawable.img_profile1,
+                R.drawable.bg_background,
                 "mostar lab lifetime",
                 "What is the loop of Creation? How is there something from nothing? " +
                         "In spite of the fact that it is impossible to prove that anythin….",
@@ -97,7 +98,7 @@ class HomeFragment : Fragment(),Comunicator_interface {
             HomeObject(
                 1,
                 R.drawable.btn_circle,
-                R.drawable.background,
+                R.drawable.bg_background,
                 "sơn nv",
                 "What is the loop of Creation? How is there something from nothing? " +
                         "In spite of the fact that it is impossible to prove that anythin….",
@@ -109,8 +110,8 @@ class HomeFragment : Fragment(),Comunicator_interface {
         home.add(
             HomeObject(
                 1,
-                R.drawable.profilemain,
-                R.drawable.background,
+                R.drawable.img_profilemain,
+                R.drawable.bg_background,
                 "phúc bv",
                 "What is the loop of Creation? How is there something from nothing? " +
                         "In spite of the fact that it is impossible to prove that anythin….",
@@ -122,19 +123,20 @@ class HomeFragment : Fragment(),Comunicator_interface {
 
         return root
     }
-
-
-
     override fun passData(data: MessengerObject) {
 
         val activity = activity
-        if(activity is MainActivity3) {
+        if(activity is HomeActivity) {
             activity.processDataFromChild(data)
         }
         Toast.makeText(context,data.time,Toast.LENGTH_SHORT).show()
     }
 
+    interface IListener {
+        fun heartClickListener(isChecked: Boolean, id: Int)
+    }
 
+     
 
 
 

@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/nav_home"
-        android:icon="@drawable/btn_home_animation"
+        android:icon="@drawable/ic_btn_home_animation"
         android:title=""
           />
     <item
         android:id="@+id/nav_messenger"
-        android:icon="@drawable/btn_messenger_animation"
+        android:icon="@drawable/ic_btn_messenger_animation"
         android:title=""
          />
+
     <item
         android:enabled="false"
         android:id="@+id/nav_add"
         android:title=""
         android:icon="@drawable/icon_add"
         />
+
     <item
         android:id="@+id/nav_notification"
-        android:icon="@drawable/btn_notifications_animation"
+        android:icon="@drawable/ic_btn_notifications_animation"
         android:title="" />
     <item
         android:id="@+id/nav_profile"

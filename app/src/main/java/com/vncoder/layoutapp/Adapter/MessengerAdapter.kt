@@ -13,7 +13,6 @@ import com.vncoder.layoutapp.R
 class MessengerAdapter(val context: Context, val ListMessenger:ArrayList<MessengerObject>?)
     : RecyclerView.Adapter<MessengerAdapter.ViewHolder>() {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_messenger,parent,false)
         return  ViewHolder(itemView)
@@ -28,9 +27,7 @@ class MessengerAdapter(val context: Context, val ListMessenger:ArrayList<Messeng
         holder.tv_time_messenger.setText(ItemMessenger?.time)
         holder.tv_number_messenger.setText(ItemMessenger?.number.toString())
         holder.img_avatar_messenger.setImageResource(ItemMessenger!!.avatar)
-
     }
-
 
     class ViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView) {
         val tv_name_messenger = itemView.findViewById<TextView>(R.id.tv_name_messenger)
@@ -38,9 +35,5 @@ class MessengerAdapter(val context: Context, val ListMessenger:ArrayList<Messeng
         val tv_number_messenger = itemView.findViewById<TextView>(R.id.tv_number_messenger)
         val tv_time_messenger = itemView.findViewById<TextView>(R.id.tv_time_messenger)
         val img_avatar_messenger = itemView.findViewById<ImageView>(R.id.img_avatar_messenger)
-
-
-
-
     }
 }

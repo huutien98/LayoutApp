@@ -4,7 +4,7 @@ import android.os.Messenger
 import com.vncoder.layoutapp.Model.MessengerObject
 
 
-interface Comunicator_interface {
+interface ComunicatorInterface {
     fun passData (data: MessengerObject)
 
 

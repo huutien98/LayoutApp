@@ -9,12 +9,9 @@ import com.vncoder.layoutapp.R
 
 class AddFragment : Fragment() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_add,container,false)
         return root
